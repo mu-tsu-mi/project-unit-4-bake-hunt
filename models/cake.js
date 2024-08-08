@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const cakeSchema = new Schema({
     cakeName: { type: String, required: true },
     unitPrice: { type: Number, required: true },
-    ingredients: [String]
+    ingredients: [String],
+    description: { type: String, required: true }
 }, {
     timestamps: true
 })

@@ -1,58 +1,64 @@
-import { Component } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../utilities/users-service';
 
-export default class SignUpForm extends Component {
-  state = {
+export default function SignUpForm({setUser}) {
+  const navigate = useNavigate()
+  const [signup, setSignup] = useState({
     name: '',
     email: '',
     password: '',
     confirm: '',
     error: ''
-  };
+  })
 
-  handleChange = (evt) => {
-    this.setState({
+  const handleChange = (evt) => {
+    setSignup({
+      ...signup,
       [evt.target.name]: evt.target.value,
       error: ''
     });
   };
 
-  handleSubmit = async (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const {name, email, password} = this.state;
+      const {name, email, password} = signup;
       const formData = {name, email, password};
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
-      this.props.setUser(user);
+      setUser(user);
+      navigate('/')
     } catch {
       // An error occurred
       // Probably due to a duplicate email
-      this.setState({ error: 'Sign Up Failed - Try Again' });
+      setSignup({
+        ...signup,
+        error: 'Sign Up Failed - Try Again'
+      });
     }
   };
 
-  render() {
-    const disable = this.state.password !== this.state.confirm;
-    return (
-      <div>
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
+  const disable = signup.password !== signup.confirm;
+
+  return (
+    <div>
+      <div className="form-container">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <label>Name</label>
+          <input type="text" name="name" value={signup.name} onChange={handleChange} required />
+          <label>Email</label>
+          <input type="email" name="email" value={signup.email} onChange={handleChange} required />
+          <label>Password</label>
+          <input type="password" name="password" value={signup.password} onChange={handleChange} required />
+          <label>Confirm</label>
+          <input type="password" name="confirm" value={signup.confirm} onChange={handleChange} required />
+          <button type="submit" disabled={disable}>SIGN UP</button>
+        </form>
       </div>
-    );
-  }
+      <p className="error-message">&nbsp;{signup.error}</p>
+    </div>
+  );
 }

@@ -24,6 +24,11 @@ const bookingSchema = new Schema({
         required: true
     },
     pickUpDate: { type: Date, required: true },
+    timeOfDay: {
+        type: String,
+        enum: ['9am - Noon', 'Noon - 3pm', '3 - 6pm'],
+        default: '9am - Noon',
+    },
     bookingStatus: { type: Boolean },
     pickUpPreference: { type: Boolean },
     lineItems: [lineItemSchema]
