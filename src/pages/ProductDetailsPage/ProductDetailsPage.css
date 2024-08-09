@@ -1,0 +1,8 @@
+.cakeBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.cakeBox img {
+    width: 15rem;
+}
