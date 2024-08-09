@@ -1,0 +1,9 @@
+.cakeList {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cake img {
+    width: 10rem;
+}

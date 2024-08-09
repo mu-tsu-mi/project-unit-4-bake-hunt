@@ -1,18 +1,21 @@
 [
     {
         "cakeName": "Currant scones",
+        "cakeNickname": "currant-scones",
         "unitPrice": 5,
         "ingredients": ["Flour", "Butter", "Currants"],
         "description": "Buttery scones dotted with sweet currants, perfect for a leisurely afternoon tea."
     },
     {
         "cakeName": "Pain d'epcies",
+        "cakeNickname": "pain-d-epices",
         "unitPrice": 20,
         "ingredients": ["Rye flour", "Honey", "Cinnamon", "Ginger"],
         "description": "A fragrant French spiced bread, rich in honey and warm spices."
     },
     {
         "cakeName": "Kugelhopf",
+        "cakeNickname": "kugelhopf",
         "unitPrice": 30,
         "ingredients": ["Almonds", "Raisins", "Eggs"],
         "description": "A brioche-like Alsatian classic."

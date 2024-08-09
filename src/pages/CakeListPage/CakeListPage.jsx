@@ -1,3 +1,4 @@
+import './CakeListPage.css';
 import { useState, useEffect } from 'react';
 import * as cakesAPI from '../../utilities/cakes-api';
 
@@ -14,9 +15,14 @@ export default function CakeListPage() {
     
     return (
         <>
-            <h1>CakeListPage</h1>
-            <div>
-                {cakeList.map((cake)=><div key={cake._id}>{cake.cakeName}</div>)}
+            <h1>Our Range of Cakes</h1>
+            <div className='cakeList'>
+                {cakeList.map((cake) => {
+                    return <div className='cake' key={cake._id}>
+                        <img src={`/images/${cake.cakeNickname}.jpeg`} alt={cake.cakeName} />
+                        <h3>{cake.cakeName}</h3>
+                    </div>
+                })}
             </div>
         </>
     )
