@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import ProdcutDetailsPage from '../ProdcutDetailsPage/ProdcutDetailsPage';
+import ProductDetailsPage from '../ProductDetailsPage/ProductDetailsPage';
 import OrdersPage from '../OrdersPage/OrdersPage';
 import CartPage from '../CartPage/CartPage';
 import CakeListPage from '../CakeListPage/CakeListPage'
@@ -20,7 +20,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<CakeListPage />} />
               <Route path="/cakes" element={<CakeListPage />} />
-              <Route path="/cakes/id" element={<ProdcutDetailsPage />} />
+              <Route path="/cakes/:cakeNickname" element={<ProductDetailsPage />} />
               <Route path="/cart" element={<CartPage user={user} />} />
               <Route path="/orders" element={<OrdersPage user={user} />} />
               <Route path="/login" element={<AuthPage setUser={setUser} />} />

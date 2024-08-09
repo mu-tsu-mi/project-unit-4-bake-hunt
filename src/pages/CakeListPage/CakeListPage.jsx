@@ -1,5 +1,6 @@
 import './CakeListPage.css';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import * as cakesAPI from '../../utilities/cakes-api';
 
 export default function CakeListPage() {
@@ -18,10 +19,10 @@ export default function CakeListPage() {
             <h1>Our Range of Cakes</h1>
             <div className='cakeList'>
                 {cakeList.map((cake) => {
-                    return <div className='cake' key={cake._id}>
+                    return <Link to={`/cakes/${cake.cakeNickname}`} key={cake._id}><div className='cake' >
                         <img src={`/images/${cake.cakeNickname}.jpeg`} alt={cake.cakeName} />
                         <h3>{cake.cakeName}</h3>
-                    </div>
+                    </div></Link>
                 })}
             </div>
         </>
