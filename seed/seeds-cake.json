@@ -19,5 +19,12 @@
         "unitPrice": 30,
         "ingredients": ["Almonds", "Raisins", "Eggs"],
         "description": "A brioche-like Alsatian classic."
+    },
+    {
+        "cakeName": "Lemon Drizzle",
+        "cakeNickname": "lemon-drizzle",
+        "unitPrice": 15,
+        "ingredients": ["Lemon", "Eggs"],
+        "description": "This moist loaf cake is delicately flavoured with lemon zest and topped with a sweet, tangy glaze."
     }
 ]

@@ -20,7 +20,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<CakeListPage />} />
               <Route path="/cakes" element={<CakeListPage />} />
-              <Route path="/cakes/:cakeNickname" element={<ProductDetailsPage />} />
+              <Route path="/cakes/:cakeNickname" element={<ProductDetailsPage user={user} />} />
               <Route path="/cart" element={<CartPage user={user} />} />
               <Route path="/orders" element={<OrdersPage user={user} />} />
               <Route path="/login" element={<AuthPage setUser={setUser} />} />

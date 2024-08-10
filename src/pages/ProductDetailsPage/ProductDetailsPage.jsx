@@ -2,32 +2,43 @@ import './ProductDetailsPage.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as cakesAPI from '../../utilities/cakes-api';
+import * as bookingsAPI from '../../utilities/booking-api'
+import AddToCart from '../../components/AddToCart/AddToCart';
+import LogInMessage from '../../components/LogInMessage/LogInMessage';
 
-export default function ProductDetailsPage() {
+export default function ProductDetailsPage({ user }) {
   const [cakeDetail, setCakeDetail] = useState(null)
   const { cakeNickname } = useParams()
 
-    useEffect(function() {
-      async function getItem() {
-          const cake = await cakesAPI.getOne(cakeNickname);
-          setCakeDetail(cake);
-      }
-      getItem();
-  },[cakeNickname])
+  useEffect(function () {
+    async function getItem() {
+      const cake = await cakesAPI.getOne(cakeNickname);
+      setCakeDetail(cake);
+    }
+    getItem();
+  }, [cakeNickname])
 
   if (!cakeDetail) {
     return <></>
+  }
+  async function handleAddToCart(qty) {
+    await bookingsAPI.addToCart(
+      Number(qty),
+      cakeDetail._id
+    )
   }
 
   return (
     <div className='cakeBox'>
       <h1>{cakeDetail.cakeName}</h1>
+      <p>${cakeDetail.unitPrice}</p>
       <img src={`/images/${cakeDetail.cakeNickname}.jpeg`} alt={cakeDetail.cakeName} />
       <p>{cakeDetail.description}</p>
       <h3>Ingredients</h3>
       <ul>
         {cakeDetail.ingredients.map((i) => <li key={i}>{i}</li>)}
       </ul>
+      { user ? <AddToCart handleAddToCart={handleAddToCart} /> : <LogInMessage/> }
     </div>
   );
 }
