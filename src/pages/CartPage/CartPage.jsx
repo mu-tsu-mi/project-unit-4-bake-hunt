@@ -21,7 +21,7 @@ export default function CartPage({ user }) {
                     ({ ...item, qty: Number(e.target.value) }) :
                     item
             )
-        })        
+        })
     }
 
     const handleSubmitChange = async (e) => {
@@ -74,4 +74,3 @@ export default function CartPage({ user }) {
         </>
     )
 }
-// Add link to cake details page
