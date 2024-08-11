@@ -23,6 +23,8 @@ async function addToCart(req, res) {
 }
 
 async function getCart(req, res) {
-    const booking = await Booking.findOne({ bookingStatus: false, user: req.user})
+    const booking = await Booking
+        .findOne({ bookingStatus: false, user: req.user})
+        .populate('lineItems.cake')
     booking ? res.json(booking) : res.json(null)
 }

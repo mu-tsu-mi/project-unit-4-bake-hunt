@@ -17,7 +17,7 @@ export default function CartPage({user}) {
     if (!user) {
         return <Navigate to="/login" />
     }
-    
+
     if (!cart) {
         return <div>No item is in your cart yet</div>
     }
@@ -26,9 +26,25 @@ export default function CartPage({user}) {
         <>
             <div>
                 <div className='cart-contents'>
-                    <div>Cake Name
-
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cake Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cart.lineItems.map((lineitem) => { return <tr key={lineitem._id}>
+                                <td>{lineitem.cake.cakeName}</td>
+                                <td>{lineitem.cake.unitPrice}</td>
+                                <td>{lineitem.qty}</td>
+                                <td>{lineitem.extPrice}</td>
+                            </tr>})}
+                        </tbody>
+                    </table>
+                    
                     <button>UPDATE CART</button>
                 </div>
 
