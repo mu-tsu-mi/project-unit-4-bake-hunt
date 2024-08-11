@@ -33,7 +33,12 @@ const bookingSchema = new Schema({
     pickUpPreference: { type: Boolean },
     lineItems: [lineItemSchema]
 }, {
-    timestamps: true
+    timestamps: true,
+    toJSON: { virtuals: true }
+})
+
+bookingSchema.virtual('cartTotal').get(function() {
+    return this.lineItems.reduce((total, item) => total + item.extPrice, 0);
 })
 
 module.exports = mongoose.model('Booking', bookingSchema)

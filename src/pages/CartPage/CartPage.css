@@ -1,8 +1,13 @@
+.cart {
+    margin: 2rem 8rem;
+}
+
 .cart-contents {
     display: flex;
     flex-direction: column;
-    margin: 2rem 8rem;
+    margin-bottom: 2rem;
 }
+
 .cart-contents table {
     margin-bottom: 2rem;
 }
@@ -23,4 +28,21 @@
 .cart-contents button {
     height: 2.5rem;
     width: 10rem;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.cart-total .grand-total {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--brown);
+}
+
+.booking-date label {
+    margin-right: 2rem;
+    line-height: 2rem;
 }

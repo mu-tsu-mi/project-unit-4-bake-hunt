@@ -56,7 +56,7 @@ export default function CartPage({ user }) {
 
     return (
         <>
-            <div>
+            <div className='cart'>
                 <div className='cart-contents'>
                     <table>
                         <thead>
@@ -78,7 +78,10 @@ export default function CartPage({ user }) {
                             })}
                         </tbody>
                     </table>
-                    <button type='submit' onClick={handleSubmitChange}>UPDATE CART</button>
+                    <div className='cart-total'>
+                        <button type='submit' onClick={handleSubmitChange}>UPDATE CART</button>
+                        <span className="grand-total">Total: ${cart.cartTotal}</span>
+                    </div>
                 </div>
 
                 <div className='booking-date'>
@@ -93,6 +96,7 @@ export default function CartPage({ user }) {
                             <option>Noon - 3pm</option>
                             <option>3 - 6pm</option>
                         </select>
+                        {/* ADD BOOK BUTTON */}
                     </div>
                 </div>
 
