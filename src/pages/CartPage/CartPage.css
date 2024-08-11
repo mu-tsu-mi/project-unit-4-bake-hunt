@@ -25,7 +25,7 @@
     cursor: pointer;
 }
 
-.cart-contents button {
+.cart button {
     height: 2.5rem;
     width: 10rem;
 }

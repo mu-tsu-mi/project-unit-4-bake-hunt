@@ -3,7 +3,8 @@ const Booking = require('../../models/booking');
 module.exports = {
     addToCart,
     getCart,
-    updateCart
+    updateCart,
+    checkout
 }
 
 async function addToCart(req, res) {
@@ -55,4 +56,16 @@ async function updateCart(req, res) {
 
     await booking.save()
     res.json(booking)
+}
+
+async function checkout(req, res) {
+    const booking = await Booking
+        .findOne({ bookingStatus: false, user: req.user })
+
+    booking.pickUpDate = req.body.pickUpDate;
+    booking.timeOfDay = req.body.timeOfDay;
+    booking.bookingStatus = true;
+    await booking.save()
+
+    res.json(null)
 }

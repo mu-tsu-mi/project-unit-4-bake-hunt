@@ -45,6 +45,12 @@ export default function CartPage({ user }) {
         setCart(currentCart);
     }
 
+    const handleSubmitOrder = async (e) => {
+        e.preventDefault();
+        const currentCart = await bookingsAPI.checkoutCart(user._id, cart);
+        setCart(currentCart)
+    }
+
     if (!user) {
         return <Navigate to="/login" />
     }
@@ -84,7 +90,7 @@ export default function CartPage({ user }) {
                     </div>
                 </div>
 
-                <div className='booking-date'>
+                <div className='booking-date'>                    
                     <div>
                         <label htmlFor="pickUpDate">Pick a date for your pick up date</label>
                         <input id="pickUpDate" type="date" value={initialPickUpDate} onChange={handleChangePickUpDate} />
@@ -96,8 +102,8 @@ export default function CartPage({ user }) {
                             <option>Noon - 3pm</option>
                             <option>3 - 6pm</option>
                         </select>
-                        {/* ADD BOOK BUTTON */}
                     </div>
+                    <button type='submit' onClick={handleSubmitOrder}>BOOK</button>
                 </div>
 
             </div>

@@ -9,5 +9,6 @@ router.put('/', bookingsCtrl.addToCart)
 router.get('/', bookingsCtrl.getCart)
 // POST /api/bookings
 router.post('/', bookingsCtrl.updateCart)
+router.post('/checkout', bookingsCtrl.checkout)
 
 module.exports = router;
