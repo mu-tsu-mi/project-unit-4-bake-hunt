@@ -1,4 +1,5 @@
-import { Navigate } from 'react-router-dom';
+import './CartPage.css';
+import { Navigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as bookingsAPI from '../../utilities/booking-api'
 
@@ -54,9 +55,9 @@ export default function CartPage({ user }) {
                         <tbody>
                             {cart.lineItems.map((lineItem) => {
                                 return <tr key={lineItem._id}>
-                                    <td>{lineItem.cake.cakeName}</td>
+                                    <td><Link to={`/cakes/${lineItem.cake.cakeNickname}`} className='cakeLink'>{lineItem.cake.cakeName}</Link></td>
                                     <td>${lineItem.cake.unitPrice}</td>
-                                    <td><input type='number' value={lineItem.qty} onChange={(e) => handleChangeQty(e, lineItem)} /></td>
+                                    <td><input type='number' min="1" value={lineItem.qty} onChange={(e) => handleChangeQty(e, lineItem)} /></td>
                                     <td>${lineItem.extPrice}</td>
                                 </tr>
                             })}
