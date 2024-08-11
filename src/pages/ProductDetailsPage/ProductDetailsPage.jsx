@@ -31,14 +31,21 @@ export default function ProductDetailsPage({ user }) {
   return (
     <div className='cakeBox'>
       <h1>{cakeDetail.cakeName}</h1>
-      <p>${cakeDetail.unitPrice}</p>
-      <img src={`/images/${cakeDetail.cakeNickname}.jpeg`} alt={cakeDetail.cakeName} />
-      <p>{cakeDetail.description}</p>
-      <h3>Ingredients</h3>
-      <ul>
-        {cakeDetail.ingredients.map((i) => <li key={i}>{i}</li>)}
-      </ul>
-      { user ? <AddToCart handleAddToCart={handleAddToCart} /> : <LogInMessage/> }
+      
+      <div className='cakeDetail'>
+        <div className='cakeImage'>
+          <span className='price'>${cakeDetail.unitPrice}</span>
+          <img src={`/images/${cakeDetail.cakeNickname}.jpeg`} alt={cakeDetail.cakeName} />
+          {user ? <AddToCart handleAddToCart={handleAddToCart} /> : <LogInMessage />}
+        </div>
+        <div className='cakeIngredients'>
+          <p>{cakeDetail.description}</p>
+          <h3>Ingredients</h3>
+          <ul>
+            {cakeDetail.ingredients.map((i) => <li key={i}>{i}</li>)}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

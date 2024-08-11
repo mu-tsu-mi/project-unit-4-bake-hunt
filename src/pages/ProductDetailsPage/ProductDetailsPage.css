@@ -3,6 +3,30 @@
     flex-direction: column;
 }
 
-.cakeBox img {
-    width: 15rem;
+.cakeImage img {
+    width: 25rem;
+    margin-bottom: 1rem;
+}
+.cakeDetail {
+    display: flex;
+}
+.price {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.cakeImage {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cakeIngredients {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cakeIngredients ul {
+    list-style-type: square;
 }

@@ -1,13 +1,17 @@
 /* CSS Custom Properties */
 :root {
+  --base: #F2EFEA;
+  --brown: #33261D;
+  --gold: #C2A56C;
+
+  --text-light: #968c84;
+  --text-dark: #615954;
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
-  --text-dark: #615954;
+  /* --tan-4: #D3C1AE; */
+  /* --orange: #F67F00; */
 }
 
 *, *:before, *:after {
@@ -21,7 +25,8 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--base);
+  color: var(--text-dark);
   padding: 2vmin;
   height: 100vh;
 }
@@ -34,7 +39,7 @@ code {
 #root {
   height: 100%;
 }
-
+/* 
 .align-ctr {
   text-align: center;
 }
@@ -88,16 +93,16 @@ code {
 p.error-message {
   color: var(--orange);
   text-align: center;
-}
+} */
 
-form {
+/* form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
   color: var(--text-light);
-}
+} */
 
-label {
+/* label {
   font-size: 2vmin;
   display: flex;
   align-items: center;
@@ -109,20 +114,20 @@ input {
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
   outline: none;
 }
 
 input:focus {
   border-color: var(--orange);
-}
+} */
 
 button, a.button {
-  margin: 1vmin;
-  padding: 1vmin;
+  /* margin: 1vmin;
+  padding: 1vmin; */
   color: var(--white);
-  background-color: var(--orange);
-  font-size: 2vmin;
+  background-color: var(--brown);
+  /* font-size: 2vmin; */
   font-weight: bold;
   text-decoration: none;
   text-align: center;
@@ -132,7 +137,7 @@ button, a.button {
   cursor: pointer;
 }
 
-button.btn-sm {
+/* button.btn-sm {
   font-size: 1.5vmin;
   padding: .6vmin .8vmin;
 }
@@ -140,14 +145,14 @@ button.btn-sm {
 button.btn-xs {
   font-size: 1vmin;
   padding: .4vmin .5vmin;
-}
+} */
 
-button:disabled, form:invalid button[type="submit"] {
+/* button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
   background-color: var(--tan-4);
-}
+} */
 
-button[type="submit"] {
+/* button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+} */

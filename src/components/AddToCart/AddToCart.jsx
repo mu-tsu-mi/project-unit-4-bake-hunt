@@ -1,3 +1,4 @@
+import './AddToCart.css';
 import { useState } from 'react';
 
 export default function AddToCart({ handleAddToCart }) {
@@ -5,18 +6,19 @@ export default function AddToCart({ handleAddToCart }) {
 
     return (
         <>
-            <p>cart</p>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 handleAddToCart(qty)
             }}>
-                <input
-                    type="number"
-                    value={qty}
-                    min="1"
-                    onChange={(e) => setQty(e.target.value)}>
-                </input>
-                <button type="submit" >ADD TO CART</button>
+                <div className='addToCart'>
+                    <input
+                        type="number"
+                        value={qty}
+                        min="1"
+                        onChange={(e) => setQty(e.target.value)}>
+                    </input>
+                    <button type="submit" className='add-button'>ADD TO CART</button>
+                </div>
             </form>
         </>
     )

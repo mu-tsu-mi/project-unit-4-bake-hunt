@@ -1,5 +1,4 @@
 const Booking = require('../../models/booking');
-const Cake = require('../../models/cake');
 
 module.exports = {
     addToCart,

@@ -1,0 +1,13 @@
+.addToCart {
+    display: flex;
+    height: 2rem;
+}
+
+.addToCart input {
+    width: 3rem;
+    font-size: 1rem;
+}
+
+.addToCart button {
+    margin-left: 1rem;
+}
