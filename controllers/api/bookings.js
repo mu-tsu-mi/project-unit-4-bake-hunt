@@ -2,7 +2,8 @@ const Booking = require('../../models/booking');
 
 module.exports = {
     addToCart,
-    getCart
+    getCart,
+    updateCart
 }
 
 async function addToCart(req, res) {
@@ -27,4 +28,17 @@ async function getCart(req, res) {
         .findOne({ bookingStatus: false, user: req.user})
         .populate('lineItems.cake')
     booking ? res.json(booking) : res.json(null)
+}
+
+async function updateCart(req, res) {
+    const booking = await Booking
+        .findOne({ bookingStatus: false, user: req.user})
+        .populate('lineItems.cake')
+    
+    booking.lineItems.forEach((lineItem, index) => {
+        lineItem.qty = req.body.lineItems[index].qty
+    })
+
+    await booking.save()
+    res.json(booking)
 }

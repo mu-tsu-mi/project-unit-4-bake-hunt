@@ -18,10 +18,16 @@ export default function CartPage({ user }) {
             ...cart,
             lineItems: cart.lineItems.map((item) =>
                 item._id === lineItem._id ?
-                    ({ ...item, qty: e.target.value }) :
+                    ({ ...item, qty: Number(e.target.value) }) :
                     item
             )
         })        
+    }
+
+    const handleSubmitChange = async (e) => {
+        e.preventDefault();
+        const currentCart = await bookingsAPI.updateCart(user._id, cart);
+        setCart(currentCart);
     }
 
     if (!user) {
@@ -56,7 +62,7 @@ export default function CartPage({ user }) {
                             })}
                         </tbody>
                     </table>
-                    <button>UPDATE CART</button>
+                    <button type='submit' onClick={handleSubmitChange}>UPDATE CART</button>
                 </div>
 
                 <div className='booking-date'>
@@ -68,3 +74,4 @@ export default function CartPage({ user }) {
         </>
     )
 }
+// Add link to cake details page

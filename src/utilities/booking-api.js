@@ -8,3 +8,7 @@ export async function addToCart(qty, cakeId) {
 export async function getCart(userId) {
     return sendRequest(`${BASE_URL}`);
 }
+
+export async function updateCart(userId, cart) {
+    return sendRequest(`${BASE_URL}`, 'POST', cart);
+}

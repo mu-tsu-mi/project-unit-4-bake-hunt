@@ -7,5 +7,7 @@ const bookingsCtrl = require('../../controllers/api/bookings');
 router.put('/', bookingsCtrl.addToCart)
 // GET /api/bookings
 router.get('/', bookingsCtrl.getCart)
+// POST /api/bookings
+router.post('/', bookingsCtrl.updateCart)
 
 module.exports = router;
