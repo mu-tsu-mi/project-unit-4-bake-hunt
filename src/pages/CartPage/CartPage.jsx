@@ -25,6 +25,20 @@ export default function CartPage({ user }) {
         })
     }
 
+    const handleChangePickUpDate = (e) => {
+        setCart({
+            ...cart,
+            pickUpDate: e.target.value
+        })
+    }
+
+    const handleChangeTimeOfDay = (e) => {
+        setCart({
+            ...cart,
+            timeOfDay: e.target.value
+        })
+    }
+
     const handleSubmitChange = async (e) => {
         e.preventDefault();
         const currentCart = await bookingsAPI.updateCart(user._id, cart);
@@ -38,6 +52,7 @@ export default function CartPage({ user }) {
     if (!cart) {
         return <div>No item is in your cart yet</div>
     }
+    const initialPickUpDate = cart.pickUpDate.toLocaleString().split('T')[0]
 
     return (
         <>
@@ -67,8 +82,18 @@ export default function CartPage({ user }) {
                 </div>
 
                 <div className='booking-date'>
-                    <div>Calendar</div>
-                    <div>Time Selector</div>
+                    <div>
+                        <label htmlFor="pickUpDate">Pick a date for your pick up date</label>
+                        <input id="pickUpDate" type="date" value={initialPickUpDate} onChange={handleChangePickUpDate} />
+                    </div>
+                    <div>
+                        <label htmlFor="timeOfDay">Pick a time for your pick up</label>
+                        <select id="timeOfDay" value={cart.timeOfDay} onChange={handleChangeTimeOfDay}>
+                            <option>9am - Noon</option>
+                            <option>Noon - 3pm</option>
+                            <option>3 - 6pm</option>
+                        </select>
+                    </div>
                 </div>
 
             </div>
