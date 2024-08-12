@@ -4,7 +4,9 @@ module.exports = {
     addToCart,
     getCart,
     updateCart,
-    checkout
+    checkout,
+    // for Orders page
+    getOrders
 }
 
 async function addToCart(req, res) {
@@ -68,4 +70,13 @@ async function checkout(req, res) {
     await booking.save()
 
     res.json(null)
+}
+
+// for Oreders page
+async function getOrders(req, res) {
+    const booking = await Booking
+        .find({ bookingStatus: true, user: req.user })
+        .populate('lineItems.cake')
+    console.log(booking)
+    booking ? res.json(booking) : res.json(null)
 }

@@ -16,3 +16,7 @@ export async function updateCart(userId, cart) {
 export async function checkoutCart(userId, cart) {
     return sendRequest(`${BASE_URL}/checkout`, 'POST', cart);
 }
+
+export async function getOrders(userId) {
+    return sendRequest(`${BASE_URL}/orders`);
+}
