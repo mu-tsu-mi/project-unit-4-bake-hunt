@@ -26,10 +26,10 @@ export default function OrdersPage({ user }) {
     <>
       <h1>Your Orders</h1>
       {orders.map((order) => {
-        return <div key={order._id}>
+        return <div key={order._id} className="order-contents">
           <span className="item">Pick up date: {order.pickUpDate.toLocaleString().split('T')[0]}</span>
           <span className="item">Pick up time: {order.timeOfDay}</span>
-          <span>Total: ${order.cartTotal}</span>
+          <span className="item">Total: ${order.cartTotal}</span>
           <table className="lineitem-table">
             <thead>
               <tr>
@@ -42,7 +42,7 @@ export default function OrdersPage({ user }) {
             <tbody>
               {order.lineItems.map((lineItem) => {
                 return <tr key={lineItem._id}>
-                  <td><Link to={`/cakes/${lineItem.cake.cakeNickname}`} className='cakeLink'>{lineItem.cake.cakeName}</Link></td>
+                  <td><Link to={`/cakes/${lineItem.cake.cakeNickname}`}>{lineItem.cake.cakeName}</Link></td>
                   <td>${lineItem.cake.unitPrice}</td>
                   <td>{lineItem.qty}</td>
                   <td>${lineItem.extPrice}</td>

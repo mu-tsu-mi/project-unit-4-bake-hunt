@@ -76,7 +76,7 @@ export default function CartPage({ user }) {
                         <tbody>
                             {cart.lineItems.map((lineItem) => {
                                 return <tr key={lineItem._id}>
-                                    <td><Link to={`/cakes/${lineItem.cake.cakeNickname}`} className='cakeLink'>{lineItem.cake.cakeName}</Link></td>
+                                    <td><Link to={`/cakes/${lineItem.cake.cakeNickname}`}>{lineItem.cake.cakeName}</Link></td>
                                     <td>${lineItem.cake.unitPrice}</td>
                                     <td><input type='number' min="1" value={lineItem.qty} onChange={(e) => handleChangeQty(e, lineItem)} /></td>
                                     <td>${lineItem.extPrice}</td>

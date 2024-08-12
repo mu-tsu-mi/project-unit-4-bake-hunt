@@ -1,0 +1,8 @@
+.order-contents {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 8rem;
+}
+.item {
+    margin-bottom: 0.5rem;
+}
