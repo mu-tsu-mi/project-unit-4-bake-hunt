@@ -35,6 +35,19 @@ a:visited, a:link {
   color: var(--brown);
 }
 
+table.lineitem-table {
+  margin-bottom: 2rem;
+}
+table.lineitem-table th {
+  text-align: left;
+  background-color: var(--brown);
+  color: var(--base);
+  padding: 0.5rem;
+}
+table.lineitem-table td {
+  padding: 0.5rem 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

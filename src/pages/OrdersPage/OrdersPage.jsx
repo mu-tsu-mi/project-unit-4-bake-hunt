@@ -1,4 +1,5 @@
-import { Navigate } from 'react-router-dom';
+import './OrdersPage.css';
+import { Navigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as bookingsAPI from '../../utilities/booking-api'
 
@@ -24,20 +25,33 @@ export default function OrdersPage({ user }) {
   return (
     <>
       <h1>Your Orders</h1>
-      <div className="order-list">
-        {orders.map((order) => {
-          return <div key={order._id} className='order-card'>
-            <span>Pick up date: {order.pickUpDate.toLocaleString().split('T')[0]}</span>
-            <span>Pick up time: {order.timeOfDay}</span>
-            {order.lineItems.map((lineItem) => {
-              return <div key={lineItem._id} className='lineitem'>
-                <span>Cake: {lineItem.cake.cakeName}</span>
-                <span>Quantity: {lineItem.qty}</span>
-                </div>
-            })}
-          </div>
-        })}
-      </div>
+      {orders.map((order) => {
+        return <div key={order._id}>
+          <span className="item">Pick up date: {order.pickUpDate.toLocaleString().split('T')[0]}</span>
+          <span className="item">Pick up time: {order.timeOfDay}</span>
+          <span>Total: ${order.cartTotal}</span>
+          <table className="lineitem-table">
+            <thead>
+              <tr>
+                <th>Cake Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {order.lineItems.map((lineItem) => {
+                return <tr key={lineItem._id}>
+                  <td><Link to={`/cakes/${lineItem.cake.cakeNickname}`} className='cakeLink'>{lineItem.cake.cakeName}</Link></td>
+                  <td>${lineItem.cake.unitPrice}</td>
+                  <td>{lineItem.qty}</td>
+                  <td>${lineItem.extPrice}</td>
+                </tr>
+              })}
+            </tbody>
+          </table>
+        </div>
+      })}
     </>
   );
 }

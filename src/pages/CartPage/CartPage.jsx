@@ -64,7 +64,7 @@ export default function CartPage({ user }) {
         <>
             <div className='cart'>
                 <div className='cart-contents'>
-                    <table>
+                    <table className="lineitem-table">
                         <thead>
                             <tr>
                                 <th>Cake Name</th>

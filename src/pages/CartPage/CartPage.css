@@ -8,19 +8,6 @@
     margin-bottom: 2rem;
 }
 
-.cart-contents table {
-    margin-bottom: 2rem;
-}
-.cart-contents table th {
-    text-align: left;
-    background-color: var(--brown);
-    color: var(--base);
-    padding: 0.5rem;
-}
-.cart-contents table td {
-    padding: 0.5rem 0;
-}
-
 .cakeLink {
     cursor: pointer;
 }
