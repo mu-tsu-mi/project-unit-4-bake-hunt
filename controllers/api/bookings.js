@@ -55,13 +55,17 @@ async function updateCart(req, res) {
     booking.lineItems.forEach((lineItem, index) => {
         lineItem.qty = req.body.lineItems[index].qty
     })
-    
+
     booking.lineItems = booking.lineItems.filter((lineItem) => {
         return lineItem.qty > 0
     })
-
-    await booking.save()
-    res.json(booking)
+    if (booking.lineItems.length === 0) {
+        await booking.delete();
+        res.json(null)
+    } else {
+        await booking.save();
+        res.json(booking);
+    }
 }
 
 async function checkout(req, res) {
@@ -71,7 +75,7 @@ async function checkout(req, res) {
     booking.pickUpDate = req.body.pickUpDate;
     booking.timeOfDay = req.body.timeOfDay;
     booking.bookingStatus = true;
-    await booking.save()
+    await booking.save();
 
     res.json(null)
 }
@@ -81,6 +85,6 @@ async function getOrders(req, res) {
     const booking = await Booking
         .find({ bookingStatus: true, user: req.user })
         .populate('lineItems.cake')
-    
+
     booking ? res.json(booking) : res.json(null)
 }
