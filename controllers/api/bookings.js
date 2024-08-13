@@ -55,6 +55,10 @@ async function updateCart(req, res) {
     booking.lineItems.forEach((lineItem, index) => {
         lineItem.qty = req.body.lineItems[index].qty
     })
+    
+    booking.lineItems = booking.lineItems.filter((lineItem) => {
+        return lineItem.qty > 0
+    })
 
     await booking.save()
     res.json(booking)
@@ -77,6 +81,6 @@ async function getOrders(req, res) {
     const booking = await Booking
         .find({ bookingStatus: true, user: req.user })
         .populate('lineItems.cake')
-    console.log(booking)
+    
     booking ? res.json(booking) : res.json(null)
 }
