@@ -9,6 +9,7 @@ import LogInMessage from '../../components/LogInMessage/LogInMessage';
 export default function ProductDetailsPage({ user }) {
   const [cakeDetail, setCakeDetail] = useState(null)
   const { cakeNickname } = useParams()
+  const [thanksMsg, setThanksMsg] = useState('')
 
   useEffect(function () {
     async function getItem() {
@@ -22,10 +23,12 @@ export default function ProductDetailsPage({ user }) {
     return <></>
   }
   async function handleAddToCart(qty) {
+    setThanksMsg('')
     await bookingsAPI.addToCart(
       Number(qty),
       cakeDetail._id
     )
+    setThanksMsg(`Thanks. You added ${qty} * ${cakeDetail.cakeName} to your cart.`)
   }
 
   return (
@@ -37,6 +40,7 @@ export default function ProductDetailsPage({ user }) {
           <span className='price'>${cakeDetail.unitPrice}</span>
           <img src={`/images/${cakeDetail.cakeNickname}.jpeg`} alt={cakeDetail.cakeName} />
           {user ? <AddToCart handleAddToCart={handleAddToCart} /> : <LogInMessage />}
+          {thanksMsg && <div>{thanksMsg}</div>}
         </div>
         <div className='cakeIngredients'>
           <p>{cakeDetail.description}</p>
