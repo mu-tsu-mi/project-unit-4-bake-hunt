@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--brown);
+    color: var(--gold);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
