@@ -13,13 +13,13 @@ export default function OrdersPage({ user }) {
     }
     getOrders();
   }, [user])
-
+  
   if (!user) {
     return <Navigate to="/login" />
   }
 
-  if (!orders) {
-    return <div>It seems there is no order made yet</div>
+  if (!orders || orders.length === 0) {
+    return <div className="no-order-msg">It seems there is no order made yet</div>
   }
 
   return (
