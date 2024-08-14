@@ -6,16 +6,17 @@ export default function AddToCart({ handleAddToCart }) {
 
     return (
         <>
-            <form onSubmit={(e) => {
+            <form name="addToCart" onSubmit={(e) => {
                 e.preventDefault();
                 handleAddToCart(qty)
             }}>
                 <div className='addToCart'>
                     <input
+                        name="qty"
                         type="number"
                         value={qty}
                         min="1"
-                        onChange={(e) => setQty(e.target.value)}>
+                        onChange={(e) => setQty(Number(e.target.value))}>
                     </input>
                     <button type="submit" className='add-button'>ADD TO CART</button>
                 </div>
