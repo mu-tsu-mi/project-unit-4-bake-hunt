@@ -5,6 +5,7 @@ import * as bookingsAPI from '../../utilities/booking-api'
 
 export default function CartPage({ user }) {
     const [cart, setCart] = useState(null)
+    const [err, setErr] = useState('')
 
     useEffect(function () {
         async function getCart() {
@@ -19,7 +20,7 @@ export default function CartPage({ user }) {
             ...cart,
             lineItems: cart.lineItems.map((item) =>
                 item._id === lineItem._id ?
-                    ({ ...item, qty: Number(e.target.value) }) :
+                    ({ ...item, qty: e.target.value }) :
                     item
             )
         })
@@ -41,8 +42,12 @@ export default function CartPage({ user }) {
 
     const handleSubmitChange = async (e) => {
         e.preventDefault();
-        const currentCart = await bookingsAPI.updateCart(user._id, cart);
-        setCart(currentCart);
+        try {
+            const currentCart = await bookingsAPI.updateCart(user._id, cart);
+            setCart(currentCart);
+        } catch (err) {
+            setErr(err.message)
+        }
     }
 
     const handleSubmitOrder = async (e) => {
@@ -86,11 +91,12 @@ export default function CartPage({ user }) {
                     </table>
                     <div className='cart-total'>
                         <button type='submit' onClick={handleSubmitChange}>UPDATE CART</button>
+                        <p className="error-message">{err}</p>
                         <span className="grand-total">Total: ${cart.cartTotal}</span>
                     </div>
                 </div>
 
-                <div className='booking-date'>                    
+                <div className='booking-date'>
                     <div>
                         <label htmlFor="pickUpDate">Pick a date for your pick up date</label>
                         <input id="pickUpDate" type="date" value={initialPickUpDate} onChange={handleChangePickUpDate} />

@@ -48,6 +48,10 @@ async function getCart(req, res) {
 }
 
 async function updateCart(req, res) {
+    if(!Number.isInteger(Number(req.body.qty))){
+        return res.status(400).json({ message: "Please select an integer value for quantity"})
+    }
+
     const booking = await Booking
         .findOne({ bookingStatus: false, user: req.user })
         .populate('lineItems.cake')
@@ -75,8 +79,8 @@ async function checkout(req, res) {
     booking.pickUpDate = req.body.pickUpDate;
     booking.timeOfDay = req.body.timeOfDay;
     booking.bookingStatus = true;
+     
     await booking.save();
-
     res.json(null)
 }
 

@@ -2,7 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const lineItemSchema = new Schema({
-    qty: { type: Number, default: 1 },
+    qty: {
+        type: Number,
+        default: 1,
+        validate: {
+            validator: Number.isInteger,
+            message: props => `${props.value} is not an integer value.`
+        }
+    },
     cake: {
         type: Schema.Types.ObjectId,
         ref: 'Cake',
