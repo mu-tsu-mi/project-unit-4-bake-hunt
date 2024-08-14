@@ -42,6 +42,7 @@ export default function CartPage({ user }) {
 
     const handleSubmitChange = async (e) => {
         e.preventDefault();
+        setErr('')
         try {
             const currentCart = await bookingsAPI.updateCart(user._id, cart);
             setCart(currentCart);
@@ -91,7 +92,7 @@ export default function CartPage({ user }) {
                     </table>
                     <div className='cart-total'>
                         <button type='submit' onClick={handleSubmitChange}>UPDATE CART</button>
-                        <p className="error-message">{err}</p>
+                        {err && <p className="error-message">{err}</p>}
                         <span className="grand-total">Total: ${cart.cartTotal}</span>
                     </div>
                 </div>

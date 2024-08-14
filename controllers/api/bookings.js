@@ -89,6 +89,7 @@ async function getOrders(req, res) {
     const booking = await Booking
         .find({ bookingStatus: true, user: req.user })
         .populate('lineItems.cake')
+        .sort({ pickUpDate: "ascending"});
 
     booking ? res.json(booking) : res.json(null)
 }
