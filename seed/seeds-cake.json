@@ -23,8 +23,43 @@
     {
         "cakeName": "Lemon Drizzle",
         "cakeNickname": "lemon-drizzle",
-        "unitPrice": 15,
+        "unitPrice": 18,
         "ingredients": ["Lemon", "Eggs"],
         "description": "This moist loaf cake is delicately flavoured with lemon zest and topped with a sweet, tangy glaze."
+    },
+    {
+        "cakeName": "Torta Barozzi",
+        "cakeNickname": "torta-barozzi",
+        "unitPrice": 6,
+        "ingredients": ["Chocolate", "Peanuts", "Almonds", "Coffee grounds"],
+        "description": "Indulge in a rich and moist flourless chocolate cake hailing from Vignola, Italy."
+    },
+    {
+        "cakeName": "Wholemeal Apple Cake",
+        "cakeNickname": "wholemeal-apple-cake",
+        "unitPrice": 8,
+        "ingredients": ["Apple", "Yoghurt", "Cinnamon"],
+        "description": "Bursting with the sweet and tangy flavors of fresh apples, this moist and tender cake is a delightful treat."
+    },
+    {
+        "cakeName": "Stollen",
+        "cakeNickname": "stollen",
+        "unitPrice": 40,
+        "ingredients": ["Currants", "Eggs", "Almonds", "Orange peel"],
+        "description": "A traditional German treat, rich and decadent fruit bread bursting with dried fruits, candied peel, and warm spices."
+    },
+    {
+        "cakeName": "Gateau Basque",
+        "cakeNickname": "gateau-basque",
+        "unitPrice": 8,
+        "ingredients": ["Black Cherry Jam", "Eggs", "Milk"],
+        "description": "A classic piece from the Basque region between France and Spain.A buttery, shortcrust pastry filled with a luscious combination of pastry cream and sweet cherry jam."
+    },
+    {
+        "cakeName": "Orange Polenta Cake",
+        "cakeNickname": "orange-polenta-cake",
+        "unitPrice": 7,
+        "ingredients": ["Polenta", "Orange", "Flour"],
+        "description": "The moist and tender polenta cake is infused with the bright and refreshing taste of orange."
     }
 ]
