@@ -20,7 +20,7 @@ export default function CartPage({ user }) {
             ...cart,
             lineItems: cart.lineItems.map((item) =>
                 item._id === lineItem._id ?
-                    ({ ...item, qty: e.target.value }) :
+                    ({ ...item, qty: Number(e.target.value) }) :
                     item
             )
         })
