@@ -49,6 +49,13 @@ table.lineitem-table td {
   padding: 0.5rem 0;
 }
 
+.no-item-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

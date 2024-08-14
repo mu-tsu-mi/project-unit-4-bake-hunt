@@ -10,10 +10,12 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <div className="header">
+      <Link to="/">
       <span className="logo">
         <span>B&nbsp;&nbsp;</span>
         <span>&nbsp;&nbsp;H</span>
       </span>
+      </Link>
       <nav>
         <Link to="/">Home</Link>
         &nbsp; | &nbsp;

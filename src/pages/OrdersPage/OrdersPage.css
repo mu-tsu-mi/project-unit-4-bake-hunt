@@ -6,9 +6,3 @@
 .item {
     margin-bottom: 0.5rem;
 }
-.no-order-msg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
-}

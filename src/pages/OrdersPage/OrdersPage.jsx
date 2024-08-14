@@ -19,7 +19,7 @@ export default function OrdersPage({ user }) {
   }
 
   if (!orders || orders.length === 0) {
-    return <div className="no-order-msg">It seems there is no order made yet</div>
+    return <div className="no-item-msg">It seems there is no order made yet</div>
   }
 
   return (
