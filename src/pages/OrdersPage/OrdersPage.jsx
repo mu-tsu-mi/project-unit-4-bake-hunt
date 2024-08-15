@@ -27,9 +27,9 @@ export default function OrdersPage({ user }) {
       <h1>Your Orders</h1>
       {orders.map((order) => {
         return <div key={order._id} className="order-contents">
-          <span className="item">Pick up date: {order.pickUpDate.toLocaleString().split('T')[0]}</span>
-          <span className="item">Pick up time: {order.timeOfDay}</span>
-          <span className="item">Total: ${order.cartTotal}</span>
+          <span className="item"><label>Pick up date:</label> {order.pickUpDate.toLocaleString().split('T')[0]}</span>
+          <span className="item"><label>Pick up time:</label> {order.timeOfDay}</span>
+          <span className="item"><label>Total:</label> ${order.cartTotal}</span>
           <table className="lineitem-table">
             <thead>
               <tr>

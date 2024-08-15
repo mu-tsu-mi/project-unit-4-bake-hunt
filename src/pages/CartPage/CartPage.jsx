@@ -68,9 +68,9 @@ export default function CartPage({ user }) {
     }
 
     if (!cart) {
-        return <div className="no-item-msg">No item is in your cart now</div>
+        return <div className="no-item-msg"><h3>No item is in your cart now</h3></div>
     }
-    
+
     const initialPickUpDate = cart.pickUpDate.toLocaleString().split('T')[0]
 
     return (

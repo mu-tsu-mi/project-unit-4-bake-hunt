@@ -30,7 +30,7 @@
     {
         "cakeName": "Torta Barozzi",
         "cakeNickname": "torta-barozzi",
-        "unitPrice": 6,
+        "unitPrice": 7,
         "ingredients": ["Chocolate", "Peanuts", "Almonds", "Coffee grounds"],
         "description": "Indulge in a rich and moist flourless chocolate cake hailing from Vignola, Italy."
     },
@@ -61,5 +61,47 @@
         "unitPrice": 7,
         "ingredients": ["Polenta", "Orange", "Flour"],
         "description": "The moist and tender polenta cake is infused with the bright and refreshing taste of orange."
-    }
+    },
+    {
+       "cakeName": "Chocolate Tart",
+        "cakeNickname": "chocolate-tart",
+        "unitPrice":9,
+        "ingredients": ["Dark Chocolate", "Almond meal", "Cream"],
+        "description": "A rich, dark chocolate ganache is nestled in a buttery, flaky crust. A decadent treat for any chocolate lover. "
+    },
+    {
+        "cakeName": "Ginger flapjacks",
+         "cakeNickname": "ginger-flapjacks",
+         "unitPrice":16,
+         "ingredients": ["Ginger", "Oats", "Butter"],
+         "description": "Our flapjack is packed with a kick of ginger. It's the perfect pick-me-up for a cold day or a sweet treat to enjoy with a cup of tea."
+     },
+     {
+        "cakeName": "Tarte Tatin",
+         "cakeNickname": "tarte-tatin",
+         "unitPrice":9,
+         "ingredients": ["Apple", "Butter"],
+         "description": "A classic French bake. Caramelized apples are topped with a buttery, flaky pastry crust. A nostalgic afternoon treat."
+     },
+     {
+        "cakeName": "Cannelé",
+         "cakeNickname": "cannele",
+         "unitPrice":5,
+         "ingredients": ["Milk", "Eggs", "Rum"],
+         "description": "This Bordeaux treasure cheers you with a tender, custardy centre. Infused with the rich flavours of vanilla and rum."
+     },
+     {
+        "cakeName": "Kouign-Amann",
+         "cakeNickname": "kouign-amann",
+         "unitPrice":8,
+         "ingredients": ["Butter", "Yeast"],
+         "description": "A Breton treat, our Kouign-Amann is a buttery, flaky pastry with a caramelized exterior and a rich, buttery interior. "
+     },
+     {
+        "cakeName": "Eccles Cake",
+         "cakeNickname": "eccles-cake",
+         "unitPrice":6,
+         "ingredients": ["Currants", "Orange peel", "Lemon", "Cinnamon"],
+         "description": "These delightful little pies are packed with currants. Have a bite of this flaky and light pastry."
+     }
 ]

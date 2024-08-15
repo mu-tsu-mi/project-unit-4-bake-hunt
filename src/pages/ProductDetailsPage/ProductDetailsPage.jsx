@@ -40,7 +40,7 @@ export default function ProductDetailsPage({ user }) {
           <span className='price'>${cakeDetail.unitPrice}</span>
           <img src={`/images/${cakeDetail.cakeNickname}.jpeg`} alt={cakeDetail.cakeName} />
           {user ? <AddToCart handleAddToCart={handleAddToCart} /> : <LogInMessage />}
-          {thanksMsg && <div>{thanksMsg}</div>}
+          {thanksMsg && <div className="thanks-msg">{thanksMsg}</div>}
         </div>
         <div className='cakeIngredients'>
           <p>{cakeDetail.description}</p>

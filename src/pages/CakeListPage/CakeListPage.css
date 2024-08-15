@@ -1,10 +1,20 @@
 .cakeList {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1rem 1.5rem;
 }
 
-.cake img {
+.cake, .cake img {
     width: 10rem;
+}
+
+.cake {
+    background-color: var(--light-gold);
+    height: 15rem;
+}
+
+.cake h3 {
+    text-align: center;
 }
