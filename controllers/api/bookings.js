@@ -48,9 +48,10 @@ async function getCart(req, res) {
 }
 
 async function updateCart(req, res) {
-    if(!Number.isInteger(Number(req.body.qty))){
-        return res.status(400).json({ message: "Please select an integer value for quantity"})
-    }
+    
+    // if(!Number.isInteger(Number(req.body.qty))){
+    //     return res.status(400).json({ message: "Please select an integer value for quantity"})
+    // }
 
     const booking = await Booking
         .findOne({ bookingStatus: false, user: req.user })
@@ -89,7 +90,7 @@ async function getOrders(req, res) {
     const booking = await Booking
         .find({ bookingStatus: true, user: req.user })
         .populate('lineItems.cake')
-        .sort({ pickUpDate: "ascending"});
+        .sort({ pickUpDate: "descending"});
 
     booking ? res.json(booking) : res.json(null)
 }

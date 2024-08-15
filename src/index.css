@@ -56,6 +56,46 @@ table.lineitem-table td {
   margin-top: 2rem;
 }
 
+/* sign-up and login forms */
+.auth-button {
+  margin: 2rem 0;
+  height: 2.5rem;
+  width: 8rem;
+  background-color: var(--gold);
+}
+.form-button {
+  display: flex;
+  justify-content: center;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+input.auth-item {
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+}
+
+button, a.button {
+  /* margin: 1vmin;
+  padding: 1vmin; */
+  color: var(--white);
+  background-color: var(--brown);
+  /* font-size: 2vmin; */
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: .1vmin solid var(--tan-2);
+  border-radius: .5vmin;
+  outline: none;
+  cursor: pointer;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -146,21 +186,6 @@ input {
 input:focus {
   border-color: var(--orange);
 } */
-
-button, a.button {
-  /* margin: 1vmin;
-  padding: 1vmin; */
-  color: var(--white);
-  background-color: var(--brown);
-  /* font-size: 2vmin; */
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
-  outline: none;
-  cursor: pointer;
-}
 
 /* button.btn-sm {
   font-size: 1.5vmin;
