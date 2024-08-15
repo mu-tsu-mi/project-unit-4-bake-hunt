@@ -51,10 +51,16 @@ export default function CartPage({ user }) {
         }
     }
 
+    const handleSubmitCancel = async (e) => {
+        e.preventDefault();
+        const clearCart = await bookingsAPI.clearCart(user._id);
+        setCart(clearCart);
+    }
+
     const handleSubmitOrder = async (e) => {
         e.preventDefault();
         const currentCart = await bookingsAPI.checkoutCart(user._id, cart);
-        setCart(currentCart)
+        setCart(currentCart);
     }
 
     if (!user) {
@@ -62,8 +68,9 @@ export default function CartPage({ user }) {
     }
 
     if (!cart) {
-        return <div className="no-item-msg">No item is in your cart yet</div>
+        return <div className="no-item-msg">No item is in your cart now</div>
     }
+    
     const initialPickUpDate = cart.pickUpDate.toLocaleString().split('T')[0]
 
     return (
@@ -91,8 +98,11 @@ export default function CartPage({ user }) {
                         </tbody>
                     </table>
                     <div className='cart-total'>
+                        <span>
                         <button type='submit' onClick={handleSubmitChange}>UPDATE CART</button>
+                        <button id="clear-cart" type="submit" onClick={handleSubmitCancel}>CLEAR CART</button>
                         {err && <p className="error-message">{err}</p>}
+                        </span>
                         <span className="grand-total">Total: ${cart.cartTotal}</span>
                     </div>
                 </div>

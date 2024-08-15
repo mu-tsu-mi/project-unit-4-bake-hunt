@@ -63,6 +63,9 @@ table.lineitem-table td {
   width: 8rem;
   background-color: var(--gold);
 }
+#entry {
+  color: var(--brown);
+}
 .form-button {
   display: flex;
   justify-content: center;
@@ -79,6 +82,8 @@ table.lineitem-table td {
 input.auth-item {
   margin-bottom: 0.5rem;
   line-height: 1.5rem;
+  width: 20rem;
+  font-size: 1rem;
 }
 
 button, a.button {
@@ -146,13 +151,6 @@ code {
   padding: .6vmin;
   text-align: center;
   font-size: 2vmin;
-}
-
-.form-container {
-  padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
 }
 
 p.error-message {

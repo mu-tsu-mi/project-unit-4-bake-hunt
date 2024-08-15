@@ -5,6 +5,7 @@ module.exports = {
     getCart,
     updateCart,
     checkout,
+    deleteCart,
     // for Orders page
     getOrders
 }
@@ -48,7 +49,7 @@ async function getCart(req, res) {
 }
 
 async function updateCart(req, res) {
-    
+
     // if(!Number.isInteger(Number(req.body.qty))){
     //     return res.status(400).json({ message: "Please select an integer value for quantity"})
     // }
@@ -73,6 +74,14 @@ async function updateCart(req, res) {
     }
 }
 
+async function deleteCart(req, res) {
+    const booking = await Booking
+        .findOne({ bookingStatus: false, user: req.user })
+    
+    if (booking) await booking.delete();
+    res.json(null)
+}
+
 async function checkout(req, res) {
     const booking = await Booking
         .findOne({ bookingStatus: false, user: req.user })
@@ -80,7 +89,7 @@ async function checkout(req, res) {
     booking.pickUpDate = req.body.pickUpDate;
     booking.timeOfDay = req.body.timeOfDay;
     booking.bookingStatus = true;
-     
+
     await booking.save();
     res.json(null)
 }
@@ -90,7 +99,7 @@ async function getOrders(req, res) {
     const booking = await Booking
         .find({ bookingStatus: true, user: req.user })
         .populate('lineItems.cake')
-        .sort({ pickUpDate: "descending"});
+        .sort({ pickUpDate: "descending" });
 
     booking ? res.json(booking) : res.json(null)
 }

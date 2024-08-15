@@ -14,7 +14,7 @@ router.get('/cart', bookingsCtrl.getCart)
 // POST /api/bookings
 router.post('/cart', bookingsCtrl.updateCart)
 router.post('/checkout', bookingsCtrl.checkout)
-
-
+// DELETE /api/bookings
+router.delete('/cart', bookingsCtrl.deleteCart)
 
 module.exports = router;

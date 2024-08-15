@@ -24,6 +24,10 @@
     font-size: 1.5rem;
     color: var(--brown);
 }
+#clear-cart {
+    background-color: var(--gold);
+    margin-left: 0.5rem;
+}
 
 .booking-date label {
     margin-right: 2rem;

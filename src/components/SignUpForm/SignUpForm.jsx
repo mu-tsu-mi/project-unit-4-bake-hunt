@@ -36,7 +36,7 @@ export default function SignUpForm({ setUser }) {
       // Probably due to a duplicate email
       setSignup({
         ...signup,
-        error: 'Sign Up Failed - Try Again'
+        error: 'Sign Up Failed - Please Try Again'
       });
     }
   };
@@ -45,7 +45,6 @@ export default function SignUpForm({ setUser }) {
 
   return (
     <div className="form-wrapper">
-      <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit} className="auth-form">
           <label>Name</label>
           <input className="auth-item" type="text" name="name" value={signup.name} onChange={handleChange} required />
@@ -56,10 +55,9 @@ export default function SignUpForm({ setUser }) {
           <label>Confirm</label>
           <input className="auth-item" type="password" name="confirm" value={signup.confirm} onChange={handleChange} required />
           <div className="form-button">
-            <button className="auth-button" type="submit" disabled={disable}>SIGN UP</button>
+            <button className="auth-button" id="entry" type="submit" disabled={disable}>SIGN UP</button>
           </div>
         </form>
-      </div>
       <p className="error-message">&nbsp;{signup.error}</p>
     </div>
   );
