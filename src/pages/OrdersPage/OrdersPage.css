@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: 2rem 8rem;
+    border-bottom: 0.25rem dashed var(--light-gold);
 }
 .item {
     margin-bottom: 0.5rem;

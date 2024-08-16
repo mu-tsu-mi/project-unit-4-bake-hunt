@@ -49,6 +49,7 @@ async function getCart(req, res) {
 }
 
 async function updateCart(req, res) {
+    // Check user's qty input. If not an integer, return an error message.
     let error = false
     req.body.lineItems.forEach((lineItem) => {
         if(!Number.isInteger(Number(lineItem.qty))){
@@ -64,13 +65,16 @@ async function updateCart(req, res) {
         .findOne({ bookingStatus: false, user: req.user })
         .populate('lineItems.cake')
 
+    // Update lineitem with request
     booking.lineItems.forEach((lineItem, index) => {
         lineItem.qty = req.body.lineItems[index].qty
     })
 
+    // Check then remove any lineitem that has a qty of zero.
     booking.lineItems = booking.lineItems.filter((lineItem) => {
         return lineItem.qty > 0
     })
+    // Delete the cart if it doesn't have any lineitem.
     if (booking.lineItems.length === 0) {
         await booking.delete();
         res.json(null)

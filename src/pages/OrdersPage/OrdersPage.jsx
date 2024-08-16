@@ -13,12 +13,17 @@ export default function OrdersPage({ user }) {
     }
     getOrders();
   }, [user])
-  
+
   if (!user) {
     return <Navigate to="/login" />
   }
 
-  if (!orders || orders.length === 0) {
+  // renders empty screen while loading.
+  if (!orders) {
+    return <><h1>Your Orders</h1></>
+  }
+
+  if (orders.length === 0) {
     return <div className="no-item-msg">It seems there is no order made yet</div>
   }
 
