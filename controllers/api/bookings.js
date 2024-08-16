@@ -49,10 +49,16 @@ async function getCart(req, res) {
 }
 
 async function updateCart(req, res) {
+    let error = false
+    req.body.lineItems.forEach((lineItem) => {
+        if(!Number.isInteger(Number(lineItem.qty))){
+            error = true
+        }
+    })
 
-    // if(!Number.isInteger(Number(req.body.qty))){
-    //     return res.status(400).json({ message: "Please select an integer value for quantity"})
-    // }
+    if (error) {
+        return res.status(400).json({ message: "Please select an integer value for quantity"})
+    }
 
     const booking = await Booking
         .findOne({ bookingStatus: false, user: req.user })

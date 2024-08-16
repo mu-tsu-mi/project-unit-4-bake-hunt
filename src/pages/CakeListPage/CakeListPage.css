@@ -6,13 +6,14 @@
     gap: 1rem 1.5rem;
 }
 
-.cake, .cake img {
-    width: 10rem;
-}
-
 .cake {
     background-color: var(--light-gold);
-    height: 15rem;
+    height: 17rem;
+    width: 10rem;
+    overflow: hidden;
+}
+.cake img {
+    height: 10rem;
 }
 
 .cake h3 {
