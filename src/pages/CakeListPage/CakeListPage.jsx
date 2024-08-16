@@ -5,15 +5,15 @@ import * as cakesAPI from '../../utilities/cakes-api';
 
 export default function CakeListPage() {
     const [cakeList, setCakeList] = useState([])
-    
-    useEffect(function() {
+
+    useEffect(function () {
         async function getItems() {
             const cakes = await cakesAPI.getAll();
             setCakeList(cakes);
         }
         getItems();
-    },[])
-    
+    }, [])
+
     return (
         <>
             <h1>Our Range of Cakes</h1>

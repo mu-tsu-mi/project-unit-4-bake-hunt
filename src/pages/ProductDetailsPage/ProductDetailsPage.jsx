@@ -19,22 +19,21 @@ export default function ProductDetailsPage({ user }) {
     getItem();
   }, [cakeNickname])
 
-  if (!cakeDetail) {
-    return <></>
-  }
   async function handleAddToCart(qty) {
     setThanksMsg('')
-    await bookingsAPI.addToCart(
-      Number(qty),
-      cakeDetail._id
-    )
+    await bookingsAPI.addToCart(qty, cakeDetail._id)
     setThanksMsg(`Thanks. You added ${qty} * ${cakeDetail.cakeName} to your cart.`)
+  }
+
+  // returns blank screen before useEffect fetches data from database
+  if (!cakeDetail) {
+    return <></>
   }
 
   return (
     <div className='cakeBox'>
       <h1>{cakeDetail.cakeName}</h1>
-      
+
       <div className='cakeDetail'>
         <div className='cakeImage'>
           <span className='price'>${cakeDetail.unitPrice}</span>
@@ -42,14 +41,20 @@ export default function ProductDetailsPage({ user }) {
           {user ? <AddToCart handleAddToCart={handleAddToCart} /> : <LogInMessage />}
           {thanksMsg && <div className="thanks-msg">{thanksMsg}</div>}
         </div>
-        <div className='cakeIngredients'>
-          <p>{cakeDetail.description}</p>
-          <h3>Ingredients</h3>
-          <ul>
-            {cakeDetail.ingredients.map((i) => <li key={i}>{i}</li>)}
-          </ul>
-        </div>
+        <CakeIngredients cakeDetail={cakeDetail} />
       </div>
     </div>
   );
+}
+
+function CakeIngredients({ cakeDetail }) {
+  return (
+    <div className='cakeIngredients'>
+      <p>{cakeDetail.description}</p>
+      <h3>Ingredients</h3>
+      <ul>
+        {cakeDetail.ingredients.map((i) => <li key={i}>{i}</li>)}
+      </ul>
+    </div>
+  )
 }

@@ -4,6 +4,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 1rem 1.5rem;
+    padding: 0 8rem;
 }
 
 .cake {

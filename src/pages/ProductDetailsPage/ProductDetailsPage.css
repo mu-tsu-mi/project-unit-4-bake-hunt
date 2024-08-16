@@ -1,6 +1,7 @@
 .cakeBox {
     display: flex;
     flex-direction: column;
+    padding: 0 8rem;
 }
 
 .cakeImage img {

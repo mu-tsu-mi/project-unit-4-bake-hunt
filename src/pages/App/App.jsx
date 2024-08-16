@@ -17,7 +17,6 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Routes>
-              {/* Route components in here */}
               <Route path="/" element={<CakeListPage />} />
               <Route path="/cakes" element={<CakeListPage />} />
               <Route path="/cakes/:cakeNickname" element={<ProductDetailsPage user={user} />} />
