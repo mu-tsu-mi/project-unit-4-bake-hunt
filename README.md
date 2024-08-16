@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# BAKE HUNT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Bake Hunt app. A patisserie app where you can select cakes in your cart and make an order for pick-up. I conjured up this app idea from my previous experience and passion working as a baker, and my current enthusiasm becoming a web developer. I have made this app using the knowledge I learnt from General Assembly’s bootcamp course. I am keen to continue adding more features. 
 
-## Available Scripts
+# URL
+https://project-unit-4-bake-hunt.onrender.com
 
-In the project directory, you can run:
+# App Images
+![Landing page image](/public/read-me-images/landing-page.png)
+![Product details image](/public/read-me-images/product-details-page.png)
+![Cart page image](/public/read-me-images/cart-page.png)
+![Orders page image](/public/read-me-images/orders-page.png)
+![Login image](/public/read-me-images/login.png)
 
-### `npm start`
+# Current Wireframes
+![Current wireframes image](/public/read-me-images/current-wireframes.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Current Entity Relationship Diagram
+![Current ERD image](/public/read-me-images/current-erd_20240816.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Technologies Used
+### Front end
+- React / React Router
+- HTML / CSS / JavaScript
+### Back end
+- Express / Node.js
+- MongoDB / Mongoose
+### Tools
+- Git / Github
+- Render
+- Trello board / Miro / Excalidraw
 
-### `npm test`
+# User Stories
+Please visit the following Trello board for the current user stories and future user stories. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### User Story Reference - Trello board
+https://trello.com/b/NwsIzgNS/unit-4-bake-hunt
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Presentation script
