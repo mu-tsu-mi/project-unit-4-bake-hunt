@@ -75,6 +75,7 @@ export default function CartPage({ user }) {
 
     return (
         <>
+            <h1>Your Cart</h1>
             <div className='cart'>
                 <div className='cart-contents'>
                     <table className="lineitem-table">
