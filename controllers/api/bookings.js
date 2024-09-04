@@ -52,13 +52,13 @@ async function updateCart(req, res) {
     // Check user's qty input. If not an integer, return an error message.
     let error = false
     req.body.lineItems.forEach((lineItem) => {
-        if(!Number.isInteger(Number(lineItem.qty))){
+        if(!Number.isInteger(Number(lineItem.qty)) || Number(lineItem.qty) < 0){
             error = true
         }
     })
 
     if (error) {
-        return res.status(400).json({ message: "Please select an integer value for quantity"})
+        return res.status(400).json({ message: "Please select a positive integer for quantity or zero to cancel the item"})
     }
 
     const booking = await Booking
